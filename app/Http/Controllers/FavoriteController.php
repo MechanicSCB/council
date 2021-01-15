@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Favorite;
 use App\Reply;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Reputation;
 
 class FavoriteController extends Controller
 {

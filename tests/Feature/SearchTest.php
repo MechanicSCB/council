@@ -7,11 +7,11 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class SearchTest extends TestCase
-{
-    use RefreshDatabase;
-
-    /** @test */
+//class SearchTest extends TestCase
+//{
+//    use RefreshDatabase;
+//
+//    /** @test */
 //    public function a_user_can_search_threads()
 //    {
 //        config(['scout.driver' => 'algolia']);
@@ -32,4 +32,4 @@ class SearchTest extends TestCase
 //
 //        Thread::latest()->take(4)->unsearchable();
 //    }
-}
+//}

@@ -8,7 +8,7 @@ use Laravel\Scout\Searchable;
 use Stevebauman\Purify\Facades\Purify;
 
 /**
- * * App\Thread
+ * * App\Thread.
  *
  * @property int $id
  * @property int $user_id
@@ -61,7 +61,6 @@ class Thread extends Model
     {
         return $this->hasMany(Reply::class);
     }
-
 
     public function creator()
     {
@@ -143,7 +142,7 @@ class Thread extends Model
         $count = 2;
 
         while (static::where('slug', $slug)->exists()) {
-            $slug = "{$original}-" . $count++;
+            $slug = "{$original}-".$count++;
         }
 
 //        if (static::where('slug',$slug)->exists()) {
@@ -166,5 +165,4 @@ class Thread extends Model
     {
         return Purify::clean($body);
     }
-
 }

@@ -15,5 +15,4 @@ class LockedThreadController extends Controller
     {
         $thread->update(['locked' => false]);
     }
-
 }

@@ -14,7 +14,7 @@ class SearchController extends Controller
 
         $threads = Thread::search($search)->paginate(25);
 
-        if(request()->expectsJson()){
+        if (request()->expectsJson()) {
             return $threads;
         }
 
@@ -22,6 +22,5 @@ class SearchController extends Controller
             'threads' => $threads,
             'trending' => $trending->get(),
         ]);
-
     }
 }

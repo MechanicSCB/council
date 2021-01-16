@@ -8,8 +8,7 @@ use App\Thread;
 use Illuminate\Auth\Access\AuthorizationException;
 
 /**
- * Class ReplyController
- * @package App\Http\Controllers
+ * Class ReplyController.
  */
 class ReplyController extends Controller
 {
@@ -27,7 +26,7 @@ class ReplyController extends Controller
     }
 
     /**
-     * Persist a new reply
+     * Persist a new reply.
      *
      * @param $channelId
      * @param Thread $thread
@@ -36,7 +35,7 @@ class ReplyController extends Controller
      */
     public function store($channelId, Thread $thread, CreatePostRequest $form)
     {
-        if($thread->locked){
+        if ($thread->locked) {
             return response('Thread is locked', 422);
         }
 
@@ -44,7 +43,6 @@ class ReplyController extends Controller
             'body' => request('body'),
             'user_id' => auth()->id(),
         ])->load('owner');
-
     }
 
     /**
@@ -55,7 +53,7 @@ class ReplyController extends Controller
     {
         $this->authorize('update', $reply);
 
-        $this->validate(request(), ['body' => 'required|spamfree',]);
+        $this->validate(request(), ['body' => 'required|spamfree']);
 
         $reply->update(request(['body']));
     }

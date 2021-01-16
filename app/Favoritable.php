@@ -1,14 +1,12 @@
 <?php
 
-
 namespace App;
-
 
 trait Favoritable
 {
     protected static function bootFavoritable()
     {
-        static::deleting(function($model){
+        static::deleting(function ($model) {
             $model->favorites->each->delete();
         });
     }
@@ -23,7 +21,7 @@ trait Favoritable
         $attributes = ['user_id' => auth()->id()];
 
 //        if (!$this->isFavorited()) {
-        if (!$this->favorites()->where($attributes)->exists()) {
+        if (! $this->favorites()->where($attributes)->exists()) {
             Reputation::award(auth()->user(), Reputation::REPLY_FAVORITED);
 
             $this->favorites()->create($attributes);
@@ -39,10 +37,9 @@ trait Favoritable
         Reputation::reduce(auth()->user(), Reputation::REPLY_FAVORITED);
     }
 
-
     public function isFavorited()
     {
-        return !!$this->favorites->where('user_id', auth()->id())->count();
+        return (bool) $this->favorites->where('user_id', auth()->id())->count();
     }
 
     public function getIsFavoritedAttribute()
@@ -54,6 +51,4 @@ trait Favoritable
     {
         return $this->favorites->count();
     }
-
-
 }

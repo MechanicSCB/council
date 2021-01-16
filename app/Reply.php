@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Stevebauman\Purify\Facades\Purify;
 
 /**
- * * App\Reply
+ * * App\Reply.
  *
  * @property int $id
  * @property string $body
@@ -22,7 +22,7 @@ class Reply extends Model
 
     public function path()
     {
-        return $this->thread->path() . "#reply-" . $this->id;
+        return $this->thread->path().'#reply-'.$this->id;
     }
 
     protected $with = ['owner', 'favorites'];
@@ -91,5 +91,4 @@ class Reply extends Model
     {
         return Purify::clean($body);
     }
-
 }

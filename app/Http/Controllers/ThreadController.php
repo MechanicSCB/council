@@ -20,7 +20,6 @@ class ThreadController extends Controller
         $this->middleware('auth')->except(['index', 'show']);
     }
 
-
     /**
      * Display a listing of the resource.
      *
@@ -45,7 +44,6 @@ class ThreadController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     *
      */
     public function create()
     {
@@ -76,7 +74,7 @@ class ThreadController extends Controller
             'body' => request('body'),
         ]);
 
-        if(request()->wantsJson()){
+        if (request()->wantsJson()) {
             return response($thread, 201);
         }
 
@@ -157,5 +155,4 @@ class ThreadController extends Controller
 
         return $threads;
     }
-
 }

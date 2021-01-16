@@ -7,6 +7,6 @@ return [
     ],
 
     'administrators' => [
-       'johndoe@example.com',
+        'johndoe@example.com',
     ]
 ];

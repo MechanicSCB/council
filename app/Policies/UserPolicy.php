@@ -9,7 +9,6 @@ class UserPolicy
 {
     use HandlesAuthorization;
 
-
     /**
      * Determine whether the user can update the given profile.
      *

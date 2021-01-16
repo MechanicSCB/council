@@ -118,13 +118,13 @@ class User extends Authenticatable
 
     public function visitedThreadCacheKey($thread)
     {
-        return sprintf("users.%s.visits.%s", $this->id, $thread->id);
+        return sprintf('users.%s.visits.%s', $this->id, $thread->id);
     }
 
     public function getAvatarPathAttribute($avatar)
     {
         if ($avatar) {
-            return '/storage/' . $avatar;
+            return '/storage/'.$avatar;
         }
 
         return '/storage/avatars/default.gif';

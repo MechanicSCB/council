@@ -29,6 +29,5 @@ class UsersTableSeeder extends Seeder
             'password' => Hash::make('janedoe@example.com'),
             'confirmed' => 1,
         ]);
-
     }
 }

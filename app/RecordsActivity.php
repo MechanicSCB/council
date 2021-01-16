@@ -1,29 +1,26 @@
 <?php
 
-
 namespace App;
-
-
-use phpDocumentor\Reflection\Types\Static_;
 
 trait RecordsActivity
 {
     protected static function bootRecordsActivity()
     {
-        if(auth()->guest()) return;
+        if (auth()->guest()) {
+            return;
+        }
 
-        foreach (static::getActivitiesToRecord() as $event){
+        foreach (static::getActivitiesToRecord() as $event) {
             static::$event(function ($model) use ($event) {
                 $model->recordActivity($event);
             });
         }
 
-        static::deleting(function ($model){
+        static::deleting(function ($model) {
             $model->activity()->delete();
         });
-
     }
-    
+
     protected static function getActivitiesToRecord()
     {
         return ['created'];
@@ -54,5 +51,4 @@ trait RecordsActivity
     {
         return $this->morphMany('App\Activity', 'subject');
     }
-
 }

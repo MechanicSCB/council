@@ -6,7 +6,6 @@ use App\Favorite;
 use App\Reply;
 use App\Thread;
 use App\ThreadSubscription;
-use App\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Schema;
 

@@ -3,7 +3,6 @@
 namespace App\Filters;
 
 use App\User;
-use Illuminate\Http\Request;
 
 class ThreadFilters extends Filters
 {
@@ -31,6 +30,7 @@ class ThreadFilters extends Filters
     protected function popular($username)
     {
         $this->builder->getQuery()->orders = [];
+
         return $this->builder->orderBy('replies_count', 'desc');
     }
 
@@ -44,5 +44,4 @@ class ThreadFilters extends Filters
     {
         return $this->builder->where('replies_count', 0);
     }
-
 }

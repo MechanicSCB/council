@@ -35,7 +35,6 @@ Route::get('/threads/{channel}', 'ThreadController@index');
 Route::post('/locked-threads/{thread}', 'LockedThreadController@store')->name('locked-threads.store')->middleware('admin');
 Route::delete('/locked-threads/{thread}', 'LockedThreadController@destroy')->name('locked-threads.destroy')->middleware('admin');
 
-
 Route::get('/threads/{channel}/{thread}/replies', 'ReplyController@index');
 Route::post('/threads/{channel}/{thread}/replies', 'ReplyController@store');
 Route::patch('/replies/{reply}', 'ReplyController@update');
@@ -63,7 +62,7 @@ Route::group([
     'prefix' => 'admin',
     'middleware' => 'admin',
     'namespace' => 'Admin'
-], function() {
+], function () {
     Route::get('/', 'DashboardController@index')->name('admin.dashboard.index');
     Route::post('/channels', 'ChannelController@store')->name('admin.channels.store');
     Route::get('/channels', 'ChannelController@index')->name('admin.channels.index');
@@ -71,7 +70,7 @@ Route::group([
 });
 
 // очистка кэша
-Route::get('/clear', function() {
+Route::get('/clear', function () {
     Artisan::call('cache:clear');
     Artisan::call('config:clear');
     Artisan::call('view:clear');

@@ -13,4 +13,3 @@ class BestRepliesController extends Controller
         $reply->thread->markBestReply($reply);
     }
 }
-

@@ -30,6 +30,12 @@ DB_USERNAME=root
 DB_PASSWORD=
 ```
 
+1. Visit: http://council.test/register and register an account.
+
+1. Edit `config/council.php`, adding the email address of the account you just created.
+
+1. Visit: http://council.test/admin/channels and add at least one channel.  
+
 ### Step 3.
 
 reCAPTCHA is a Google tool to help prevent forum spam. You'll need to create a free account (don't worry, it's quick). 

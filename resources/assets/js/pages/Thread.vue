@@ -1,11 +1,12 @@
 <script>
     import Replies from "../components/Replies";
     import SubscribeButton from "../components/SubscribeButton";
+    import Highlight from '../components/Highlight.vue';
 
     export default {
         props: ['thread'],
 
-        components: {Replies, SubscribeButton},
+        components: {Replies, SubscribeButton, Highlight},
 
         data() {
             return {
@@ -21,6 +22,22 @@
         created() {
             this.resetForm();
         },
+
+        // mounted () {
+        //     this.highlight(this.$refs.question);
+        // },
+        //
+        // watch: {
+        //     editing() {
+        //         if(!this.editing) {
+        //             this.$nextTick(() => {
+        //                 this.highlight(this.$refs.question);
+        //             });
+        //
+        //             // setTimeout(() => this.highlight(this.$refs.question), 100);
+        //         }
+        //     }
+        // },
 
         methods: {
             toggleLock() {

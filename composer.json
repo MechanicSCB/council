@@ -11,7 +11,6 @@
         "php": ">=7.4",
         "ext-json": "*",
         "algolia/algoliasearch-client-php": "^1.23",
-        "barryvdh/laravel-debugbar": "~2.4",
         "kitetail/zttp": "^0.6.0",
         "laravel/framework": "5.5.*",
         "laravel/scout": "~5.0",
@@ -20,6 +19,7 @@
         "stevebauman/purify": "^3.0"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "~2.4",
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
         "phpunit/phpunit": "~6.0"

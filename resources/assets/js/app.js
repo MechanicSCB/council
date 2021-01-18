@@ -20,6 +20,7 @@ Vue.component('paginator', require('./components/Paginator'));
 Vue.component('user-notifications', require('./components/UserNotifications'));
 Vue.component('avatar-form', require('./components/AvatarForm'));
 Vue.component('wysiwyg', require('./components/Wysiwyg'));
+Vue.component('channel-dropdown', require('./components/ChannelDropdown.vue'));
 
 Vue.component('thread-view', require('./pages/Thread.vue'));
 

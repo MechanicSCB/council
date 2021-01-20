@@ -52,7 +52,7 @@ $factory->define(App\Thread::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(App\Channel::class, function (Faker\Generator $faker) {
-    $name = $faker->word . '_' . rand(1, 99);
+    $name = $faker->word.'_'.rand(1, 99);
 
     return [
         'name' => $name,

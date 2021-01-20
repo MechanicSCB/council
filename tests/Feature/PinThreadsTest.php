@@ -32,7 +32,7 @@ class PinThreadsTest extends TestCase
 
         $this->delete(route('pinned-threads.destroy', $thread));
 
-        $this->assertFalse($thread->fresh()->pinned, 'Failed asserting that the thread was unlocked.');
+        $this->assertFalse($thread->fresh()->pinned, 'Failed asserting that the thread was unpinned.');
     }
 
     /** @test */

@@ -28,3 +28,8 @@
     }
 </script>
 
+<style scoped>
+    trix-editor {
+        min-height: 100px;
+    }
+</style>

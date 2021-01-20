@@ -24,7 +24,7 @@ class Thread extends Model
 
     protected $with = ['creator', 'channel'];
 
-    protected $appends = ['isSubscribedTo'];
+//    protected $appends = ['isSubscribedTo'];
 
     protected $casts = [
         'locked' => 'boolean',
@@ -70,7 +70,7 @@ class Thread extends Model
 
     public function channel()
     {
-        return $this->belongsTo(Channel::class);
+        return $this->belongsTo(Channel::class)->withoutGlobalScope('active');
     }
 
     /**

@@ -157,6 +157,18 @@ class CreateThreadsTest extends TestCase
         $this->assertEquals(0, Activity::count());
     }
 
+    /** @test */
+    function a_new_thread_cannot_be_created_in_an_archived_channel()
+    {
+        $channel = factory('App\Channel')->create(['archived' => true]);
+
+        $this->publishThread(['channel_id' => $channel->id])
+            ->assertSessionHasErrors('channel_id')
+        ;
+
+        $this->assertEquals(0, $channel->threads->count());
+    }
+
     public function publishThread(array $overrides = [])
     {
         $this->withExceptionHandling()->signIn();

@@ -28,7 +28,7 @@ class SampleDataSeeder extends Seeder
     {
         Channel::truncate();
 
-        factory(Channel::class, 10)
+        factory(Channel::class, 5)
             ->create();
     }
 
@@ -40,7 +40,7 @@ class SampleDataSeeder extends Seeder
         Activity::truncate();
         Favorite::truncate();
 
-        factory(Thread::class, 50)
+        factory(Thread::class, 20)
             ->create();
     }
 }

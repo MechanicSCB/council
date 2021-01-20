@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 class Channel extends Model
@@ -21,6 +22,16 @@ class Channel extends Model
     protected $casts = [
         'archived' => 'boolean',
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope('active', function (Builder $builder) {
+            $builder->where('archived', false)
+            ->orderBy('name', 'asc');
+        });
+    }
 
     public function threads()
     {

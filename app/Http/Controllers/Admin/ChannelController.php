@@ -11,7 +11,9 @@ class ChannelController extends Controller
 {
     public function index()
     {
-        return view('admin.channels.index')->with('channels', Channel::with('threads')->get());
+        $channels = Channel::withoutGlobalScopes()->orderBy('name', 'asc')->with('threads')->get();
+
+        return view('admin.channels.index', compact('channels'));
     }
 
     public function create()
@@ -43,7 +45,7 @@ class ChannelController extends Controller
             request()->validate([
                 'name' => ['required', Rule::unique('channels')->ignore($channel->id)],
                 'description' => 'required',
-                'archived' => 'required|boolean',
+                'archived' => 'boolean',
             ])
         );
 

@@ -18,8 +18,17 @@ class Channel extends Model
         return 'slug';
     }
 
+    protected $casts = [
+        'archived' => 'boolean',
+    ];
+
     public function threads()
     {
         return $this->hasMany('App\Thread');
+    }
+
+    public function archive()
+    {
+        $this->update(['archived' => true]);
     }
 }

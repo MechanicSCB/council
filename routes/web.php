@@ -61,6 +61,8 @@ Route::get('/register/confirm', 'Auth\RegisterConfirmationController@index')->na
 Route::get('api/users', 'Api\UserController@index');
 Route::post('api/users/{user}/avatar', 'Api\UserAvatarController@store')->middleware('auth')->name('avatar');
 
+Route::get('api/channels', 'Api\ChannelController@index');
+
 Route::group([
     'prefix' => 'admin',
     'middleware' => 'admin',
@@ -70,6 +72,8 @@ Route::group([
     Route::post('/channels', 'ChannelController@store')->name('admin.channels.store');
     Route::get('/channels', 'ChannelController@index')->name('admin.channels.index');
     Route::get('/channels/create', 'ChannelController@create')->name('admin.channels.create');
+    Route::get('/channels/{channel}/edit', 'ChannelController@edit')->name('admin.channels.edit');
+    Route::patch('/channels/{channel}', 'ChannelController@update')->name('admin.channels.update');
 });
 
 // очистка кэша
